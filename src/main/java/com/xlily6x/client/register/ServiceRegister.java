@@ -47,11 +47,11 @@ public class ServiceRegister {
      * @throws Exception
      */
     private static void heartbeat(RegisterConfig registerConfig) throws Exception{
-        logger.info("Connecting to "+registerConfig.getServerHost()+":"+registerConfig.getServerPort());
+        logger.debug("Connecting to "+registerConfig.getServerHost()+":"+registerConfig.getServerPort());
         String body = registerConfig.getServicePort()+","+registerConfig.getServiceType();
         byte [] data = body.getBytes();
-        logger.info("Start send heartbeat "+body);
-        logger.info(registerConfig);
+        logger.debug("Start send heartbeat "+body);
+        logger.debug(registerConfig);
         DatagramSocket socket = new DatagramSocket(Integer.parseInt(registerConfig.getPort()));
 
         DatagramPacket packet = new DatagramPacket(data,data.length, InetAddress.getByName(registerConfig.getServerHost()),Integer.parseInt(registerConfig.getServerPort()));
