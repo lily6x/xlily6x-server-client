@@ -15,6 +15,8 @@ public class RegisterConfig {
     private String port = "60333";
     //注册服务类型
     private String serviceType = "service";
+    //本地服务提供方主机
+    private String serviceHost = "127.0.1.1";
     //本地服务提供方端口
     private String servicePort = "8080";
     //心跳启动延迟时间 单位 毫秒
@@ -25,11 +27,12 @@ public class RegisterConfig {
     public RegisterConfig() {
     }
 
-    public RegisterConfig(String port,String serverHost, String serverPort, String serviceType, String servicePort, long taskDelay, long taskPeriod) {
+    public RegisterConfig(String port,String serverHost, String serverPort, String serviceType,String serviceHost, String servicePort, long taskDelay, long taskPeriod) {
         this.port = port.equals("")?this.port:port;
         this.serverHost = serverHost.equals("")?this.serverHost:serverHost;
         this.serverPort = serverPort.equals("")?this.serverPort:serverPort;
         this.serviceType = serviceType.equals("")?this.serviceType:serviceType;
+        this.serviceHost = serviceHost.equals("")?this.serviceHost:serviceHost;
         this.servicePort = servicePort.equals("")?this.servicePort:servicePort;
         this.taskDelay = taskDelay<=0?this.taskDelay:taskDelay;
         this.taskPeriod = taskPeriod<=0?this.taskPeriod:taskPeriod;
@@ -42,10 +45,19 @@ public class RegisterConfig {
                 ", serverPort='" + serverPort + '\'' +
                 ", port='" + port + '\'' +
                 ", serviceType='" + serviceType + '\'' +
+                ", serviceHost='" + serviceHost + '\'' +
                 ", servicePort='" + servicePort + '\'' +
                 ", taskDelay=" + taskDelay +
                 ", taskPeriod=" + taskPeriod +
                 '}';
+    }
+
+    public String getServiceHost() {
+        return serviceHost;
+    }
+
+    public void setServiceHost(String serviceHost) {
+        this.serviceHost = serviceHost;
     }
 
     public String getPort() {

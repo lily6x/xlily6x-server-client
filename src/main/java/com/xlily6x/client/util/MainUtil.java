@@ -21,12 +21,13 @@ public class MainUtil {
     public final static String P2 = "server.host";
     public final static String P3 = "server.port";
     public final static String P4 = "service.type";
-    public final static String P5 = "service.port";
-    public final static String P6 = "task.delay";
-    public final static String P7 = "task.period";
+    public final static String P5 = "service.host";
+    public final static String P6 = "service.port";
+    public final static String P7 = "task.delay";
+    public final static String P8 = "task.period";
 
     //main 方法 可选参数列表
-    private static String [] parmNames = new String[]{P1,P2,P3,P4,P5,P6,P7};
+    private static String [] parmNames = new String[]{P1,P2,P3,P4,P5,P6,P7,P8};
 
 
     /**

@@ -24,9 +24,10 @@ public class ServerApplication {
      * 支持参数：
      *      --server.host 注册中心主机
      *      --server.port 注册中心端口号
-     *      --service.port 本地心跳服务端口号
+     *      --service.host 服务提供者主机
+     *      --service.port 服务提供者端口号
      *      --service.type 服务提供者类型
-     *      --port 服务提供者端口号
+     *      --port 本地心跳服务端口号
      *      --task.delay 心跳启动延迟时间 单位 毫秒
      *      --task.period 心跳间隔时间 单位 毫秒
      *
@@ -41,9 +42,9 @@ public class ServerApplication {
         Map<String,String> m = MainUtil.resolveArgs(args);
         logger.info(m);
         RegisterConfig r = new RegisterConfig(m.get(MainUtil.P1) ,m.get(MainUtil.P2) ,m.get(MainUtil.P3) ,
-                m.get(MainUtil.P4) ,m.get(MainUtil.P5) ,
-                m.get(MainUtil.P6).equals("")?0:Long.parseLong(m.get(MainUtil.P6)),
-                m.get(MainUtil.P7).equals("")?0:Long.parseLong(m.get(MainUtil.P7)));
+                m.get(MainUtil.P4) ,m.get(MainUtil.P5) ,m.get(MainUtil.P6) ,
+                m.get(MainUtil.P7).equals("")?0:Long.parseLong(m.get(MainUtil.P7)),
+                m.get(MainUtil.P8).equals("")?0:Long.parseLong(m.get(MainUtil.P8)));
         try {
             ServiceRegister.init(r);
         } catch (Exception e) {
