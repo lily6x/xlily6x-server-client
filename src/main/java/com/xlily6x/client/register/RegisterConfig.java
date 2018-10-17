@@ -20,9 +20,9 @@ public class RegisterConfig {
     //本地服务提供方端口
     private String servicePort = "8080";
     //心跳启动延迟时间 单位 毫秒
-    private long taskDelay = 1000*1*30;
+    private long taskDelay = 3000;
     //心跳间隔时间 单位 毫秒
-    private long taskPeriod = 1000*1*30;
+    private long taskPeriod = 5000;
 
     public RegisterConfig() {
     }
